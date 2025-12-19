@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discord</title>
+<style>
+  body {
+    margin: 0; 
+    background: #18191c;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e1e3e8;
+  }
+  .discord-container {
+    display: flex;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #0008;
+    max-width: 900px;
+    margin: 40px auto;
+  }
+  /* S */
+  .sidebar {
+    width: 300px;
+    background: #2f3136;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+  .channels-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 20px;
+  }
+  .channel-group {
+    margin-bottom: 18px;
+  }
+  .channel-group > .group-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8e9297;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .channel {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin: 2px 0;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    color: #b9bbbe;
+  }
+  .channel:hover {
+    background: #393c43;
+    color: white;
+  }
+  .channel.voice::before {
+    content: "🔊";
+    margin-right: 6px;
+  }
+  .channel.text::before {
+    content: "#";
+    margin-right: 6px;
+  }
+  /* M */
+  .main-content {
+    flex-grow: 1;
+    background: #36393f;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #202225;
+  }
+  .header {
+    background: #2f3136;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    border-bottom: 1px solid #202225;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header .server-name {
+    user-select: none;
+  }
+  .header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #5865f2;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 24px;
+    font-size: 16px;
+    color: #ddd;
+    overflow-y: auto;
+  }
+  .join-btn {
+    background: #43b581;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 24px;
+    margin: 16px 24px 24px auto;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: fit-content;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .join-btn:hover {
+    background: #36a16f;
+  }
+  /* m */
+  .message {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  .message .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  .message .message-content {
+    background: #2f3136;
+    margin-left: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: 75%;
+  }
+  .message .username {
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="discord-container">
+    <div class="sidebar">
+      <div class="channels-wrapper">
+        <div class="channel-group">
+          <div class="channel text"> /steamacc</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">--Önemli--</div>
+          <div class="channel text"> duyuru</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">Şikayetler [0]</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">Steam</div>
+          <div class="channel text"> oyunlar</div>
+          <div class="channel text"> fiyatlar</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">--Genel--</div>
+          <div class="channel text"> chat</div>
+          <div class="channel text"> cmd</div>
+          <div class="channel text"> yönetici</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">--Destek--</div>
+          <div class="channel text"> destek</div>
+          <div class="channel text"> ödeme</div>
+          <div class="channel voice">Canlı Destek</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">--Tedarik--</div>
+          <div class="channel text"> robux</div>
+          <div class="channel text"> spotify</div>
+          <div class="channel text"> canva</div>
+          <div class="channel text"> duolingo</div>
+        </div>
+
+        <div class="channel-group">
+          <div class="group-name">Güvenilirlik</div>
+          <div class="channel text"># memnuniyet</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="header">
+        <div class="server-name">Steam Oyun Acc</div>
+        <div class="profile-pic" id="server-profile"></div>
+      </div>
+      <div class="content">
+        <h2># duyuru kanalına hoş geldin!</h2>
+        <p>Haber Falan Burda Duyurucam!</p>
+
+        <div class="message">
+          <div class="avatar" id="serhtify-avatar"></div>
+          <div class="message-content">
+            <div class="username">Serhtify</div>
+            <div>Çok Bakma Kanka Gel Sunucuya Oyunun Tadını Çıkar</div>
+          </div>
+        </div>
+
+
+        <div class="message">
+          <div class="avatar" id="serhtify-avatar-2"></div>
+          <div class="message-content">
+            <div class="username">Serhtify</div>
+            <div>Ahmet Gülme Lan Gavat Olu Gavat</div>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="avatar" id="amho-avt"></div>
+          <div class="message-content">
+            <div class="username">Ahmet</div>
+            <div>Tamam Abi Kusura Bakma</div>
+          </div>
+        </div>
+
+      </div>
+      <a href="https://discord.gg/98kDwd9C9r" class="join-btn">Sunucuya Katıl</a>
+    </div>
+  </div>
+
+  <script>
+    // Sunucu 
+    const serverProfileURL = 'img/steam.png';
+    document.getElementById('server-profile').style.backgroundImage = `url('${serverProfileURL}')`;
+
+    // Serhtify 
+    const serhtifyAvatarURL = 'img/sero.png';
+    document.getElementById('serhtify-avatar').style.backgroundImage = `url('${serhtifyAvatarURL}')`;
+    document.getElementById('serhtify-avatar-2').style.backgroundImage = `url('${serhtifyAvatarURL}')`;
+
+   // Ahmet 
+      const ahmetAvatarURL = 'img/ahmet.webp';
+     document.getElementById('amho-avt').style.backgroundImage = `url('${ahmetAvatarURL}')`;
+
+  </script>
+</body>
+</html>
